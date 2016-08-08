@@ -1,0 +1,378 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* keyframes for hover effects on asteroids */
+@keyframes pop {
+  0% {
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  90% {
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes pulse {
+  50% {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  70% {
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* GENERAL STYLING */
+
+body {
+	font-family: 'Roboto Mono', monospace;
+	background-color: #202020;
+	color: whitesmoke;
+	text-align: center;
+	position: relative;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+header {
+	padding: 30px 0 5px 0;
+}
+
+h1 {
+	color: #bbb;
+	/*color: #202020;*/
+	font-size: 45px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	/*text-shadow: 2px 2px 1px gold, -2px -2px 1px gold, -2px 2px 1px gold, 2px -2px 1px gold;*/
+	position: relative;
+}
+
+h1 span {
+	font-style: italic;
+}
+
+h2 {
+	font-size: 26px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color: gold;
+}
+
+/* NEO SECTION */
+
+.neoImg {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	height: 450px;
+	margin-bottom: 90px;
+}
+
+.earth {
+	position: relative;
+	display: flex;
+}
+
+.earth img {
+	width: 125px;
+	height: 125px;
+}
+
+.neoSection {
+	position: absolute;
+	width: 50px;
+	padding: 0;
+	margin: 0;
+}
+
+.neoSection p {
+	width: 300px;
+	text-align: left;
+	cursor: pointer;
+}
+
+.neoCircle {
+	width: 38px;
+	height: 38px;
+	background-image: url(../assets/asteroid1.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: 0.7s ease-in-out;
+	z-index: 100;
+}
+
+/* Hover effects inspired by CODEPEN user RAYOU:; codepen.io/rayou/pen/EVKBag */
+
+.neoCircle:hover {
+	cursor: pointer;
+	transform: rotate(300deg);
+}
+
+.neoCircle:hover:before {
+  animation: pop 0.5s;
+  border: 1px solid gold;
+}
+
+.neoCircle:hover:after {
+  animation: pulse 0.6s;
+  border: 1px solid gold;
+}
+
+.neoCircle:before, .neoCircle:after {
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 37px;
+  height: 37px;
+  position: absolute;
+  border-radius: 100%;
+}
+
+.neoCircle:after {
+  transform: scale(0.1);
+  opacity: 0;
+}
+
+.midNeoCircle {
+	background-image: url(../assets/asteroid2.png);
+	background-size: 100% 100%;
+}
+
+.farNeoCircle {
+	background-image: url(../assets/asteroid3.png);
+	background-size: 100% 100%;
+}
+
+.closeNeo {
+	right: 120px;
+	position: absolute;
+	left: -40px;
+}
+
+.midNeo {
+	position: absolute;
+	right: -40px;
+}
+
+.farNeo {
+	position: absolute;
+	right: 40%;
+	left: 60%;
+}
+
+.neoText {
+	display: none;
+} 
+
+.neoTextDisplay {
+	display: flex;
+	width: 300px;
+}
+
+.neoText p {
+	font-size: 14px;
+	margin-top: 0;
+	line-height: 8px;
+}
+
+.accentColor {
+	color: orangered;
+}
+
+.showMe{
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(50,50,50,0.9);
+	width: 300px;
+	padding: 25px 25px 15px 25px;
+}
+
+/* FORM STARTS */
+
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 75%;
+	margin: 40px auto;
+}
+
+form button {
+	width: 150px;
+	background-color: transparent;
+	color: gold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 16px;
+	padding: 8px 10px;
+	border: none;
+	margin: 5px 20px;
+	outline: none;
+	border: 3px solid gold;
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+button .fa {
+	font-size: 13px;
+}
+
+form button:hover {
+	background-color: gold;
+	color: #222;
+}
+
+form button:focus {
+	outline: 3px solid goldenrod;
+}
+
+form .dataDate {
+	width: 150px;
+	color: gold;
+	font-size: 16px;
+	letter-spacing: 1px;
+	padding: 8px 10px;
+	margin: 5px 0;
+	border: 3px solid gold;
+}
+
+/* FOOTER STARTS */
+
+footer {
+	width: 850px;
+	font-size: 12px;
+	margin: 0 auto 20px auto;
+}
+
+footer .wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+footer a {
+	color: inherit;
+	padding: 5px 0;
+	transition: 0.25s ease-in-out;
+}
+
+footer a:hover, footer a:focus {
+	color: gold;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 940px) {
+	h1 {
+		max-width: 550px;
+		margin: 20px auto;
+	}
+}
+
+@media (max-width: 895px) {
+	.wrapper {
+		width: 90%;
+		max-width: 800px;
+	}
+
+	.neoExplain {
+		width: 70%;
+		margin: 0 auto;
+		line-height: 25px;
+	}
+	form {
+		width: 95%;
+	}
+	footer {
+		width: 95%;
+	}
+}
+
+@media (max-width: 675px) {
+	h1 {
+		font-size: 40px;
+		max-width: 450px;
+	}
+	h2 {
+		font-size: 22px;
+	}
+	h3 {
+		font-size: 22px;
+	}
+
+	.neoExplain {
+		width: 95%;
+	}
+
+	.neoSection {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.NEOcontainer {
+		z-index: 200;
+	}
+
+	form {
+		flex-direction: column;
+	}
+	form .dataDate {
+		flex-grow: 3;
+		order: -1;
+	}
+
+	footer .wrapper {
+		justify-content: center;
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 499px) {
+	h1 {
+		font-size: 34px;
+	}
+	h2 {
+		width: 80%;
+		margin: 0 auto;
+	}
+}

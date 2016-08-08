@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>What's Going on OUT THERE!?</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="assets/manifest.json">
+	<link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
+	<script src="https://use.fontawesome.com/07dc8c3210.js"></script>
+
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<h1>What's Going on <span>OUT THERE?!</span></h1>
+		</div>
+	</header>
+
+	<section class="neo wrapper">
+		<h2>3 Closest Asteroids to Earth</h2>
+		<!-- <h3 class="neoDate">TODAY</h3> -->
+		<div class="neoImg">
+			<div class="earth">
+				<img src="assets/earth-bw.png" alt="illustration of planet Earth">
+				<!-- Earth photo by NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans -->
+				<div class="closeNeo neoSection">
+					<div class="closeNeoCircle neoCircle"></div>
+					<!-- JS div appended here -->
+				</div>
+				<div class="midNeo neoSection">
+					<div class="midNeoCircle neoCircle"></div>
+				</div>
+				<div class="farNeo neoSection">
+					<div class="farNeoCircle neoCircle"></div>
+				</div>
+			</div>
+		</div>
+		<h3>Click on the asteroids to access their data</h3>
+		<p class="neoExplain">Each pixel between the Earth and the asteroid represents 160 000 km.</p>
+		<p class="neoExplain">(Distances to scale, objects are not)</p>
+
+	<form action="">
+		<button class="prevDate"><i class="fa fa-chevron-left" aria-hidden="true"></i> Previous </button>
+		<div class="dataDate"></div>
+		<button class="nextDate">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+	</form>
+	</section>
+
+	<footer>
+		<div class="wrapper">
+			<p>&#169; Copyright <a href="http://www.lindsiecanton.com" target="_blank">Lindsie Canton</a> 2016</p>
+			<p>API data thanks to <a href="https://api.nasa.gov/" target="_blank">NASA</a> & <a href="http://www.spacerocksapps.com/" target="_blank">The SpaceRocks Team</a></p>
+		</div>
+	</footer>
+	
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="scripts/moment.js"></script>
+	<script src="scripts/script.js"></script>
+</body>
+</html>
